@@ -16,12 +16,12 @@ export class MainWindowComponent implements OnInit {
     let GRID1 = document.getElementById("GRID1") ;
     let BTN1 = document.getElementById("BTN1") ;
     let TEXTBLOCK1 = document.getElementById("TEXTBLOCK1") ;
-    let TEXTBLOCK2 = document.getElementById("affiche") ;
+    let affiche = document.getElementById("affiche") ;
 
-    if (GRID1 && BTN1 && TEXTBLOCK1 && TEXTBLOCK2) {
+    if (GRID1 && BTN1 && TEXTBLOCK1 && affiche) {
       BTN1.innerText = "Button" ;
       // 1: Liste des CSS
-      let style = "margin: 0px, 324px, 0px, 0px;"
+      let style = "margin: 0px, 324px, 0px, 0px;" //The pixel is WPF's default unit of measurement.
       style += "text-align: center;" ;
       style += "vertical-align: top;" ;
       BTN1.setAttribute("style", style) ;
@@ -37,7 +37,7 @@ export class MainWindowComponent implements OnInit {
       // 2: Liste des eventlistener
 
 
-      TEXTBLOCK2.innerText = "" ;
+      affiche.innerText = "" ;
       // 1: Liste des CSS
       style = "margin: 370px,144px,0px,0px;"
       style += "text-align: center;" ;
@@ -46,12 +46,12 @@ export class MainWindowComponent implements OnInit {
       // 2: Liste des eventlistener
     }
   }
-
-  public  afficheMethod1(elmt : HTMLElement) : void {
+  //Revoir le nommage des paramètres ici car HTMLElement pas équivalent à Object de WPF
+  afficher(sender : HTMLElement) : void { //et RoutedEventArgs pas présent non plus
     //console.log(elmt) ;
-    if (elmt.innerText == "")
-      elmt.innerText = "Coucou";
+    if (sender.innerText == "")
+      sender.innerText = "Coucou";
     else
-      elmt.innerText = "";
+      sender.innerText = "";
   }
 }
