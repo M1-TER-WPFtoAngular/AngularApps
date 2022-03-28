@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-main-window',
   templateUrl: './main-window.component.html',
@@ -8,7 +8,8 @@ import { Title } from '@angular/platform-browser';
 })
 export class MainWindowComponent implements OnInit {
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title,
+    private router: Router)  {
     titleService.setTitle("MainWindow");
   }
 
@@ -53,5 +54,8 @@ export class MainWindowComponent implements OnInit {
       sender.innerText = "Coucou";
     else
       sender.innerText = "";
+
+  
+      this.router.navigate(['/window1'])
   }
 }
