@@ -8,54 +8,79 @@ import {Router} from "@angular/router";
 })
 export class MainWindowComponent implements OnInit {
 
+
+  private GRID1 : HTMLElement | null = null;
+  private BTN1  : HTMLElement | null = null;
+  private TEXTBLOCK1  : HTMLElement | null = null;
+  private affiche  : HTMLElement | null = null;
+
   constructor(private titleService: Title,
     private router: Router)  {
     titleService.setTitle("MainWindow");
   }
 
   ngOnInit(): void {
-    let GRID1 = document.getElementById("GRID1") ;
-    let BTN1 = document.getElementById("BTN1") ;
-    let TEXTBLOCK1 = document.getElementById("TEXTBLOCK1") ;
-    let affiche = document.getElementById("affiche") ;
+    this.GRID1 = document.getElementById("GRID1") ;
+    this.BTN1 = document.getElementById("BTN1") ;
+    this.TEXTBLOCK1 = document.getElementById("TEXTBLOCK1") ;
+    this.affiche = document.getElementById("affiche") ;
 
-    if (GRID1 && BTN1 && TEXTBLOCK1 && affiche) {
-      BTN1.innerText = "Button" ;
+
+    if (this.GRID1 && this.BTN1 && this.TEXTBLOCK1 && this.affiche) {
+      this.BTN1.innerText = "Button" ;
       // 1: Liste des CSS
-      let style = "margin: 0px, 324px, 0px, 0px;" //The pixel is WPF's default unit of measurement.
-      style += "text-align: center;" ;
-      style += "vertical-align: top;" ;
-      BTN1.setAttribute("style", style) ;
-      // 2: Liste des eventlistener
+      let style = "" ;//The pixel is WPF's default unit of measurement.
+      style += "position: absolute;";
+      style += "left: " + ((window.innerWidth / 2) - (this.BTN1.clientWidth / 2))  + ";";
+      style += "top: 0px;";
+      // Center / Top
+      this.BTN1.setAttribute("style", style) ;
 
-
-      TEXTBLOCK1.innerText = "Hello world" ;
+      let className = "" ;
+      this.BTN1.setAttribute("class", className) ;
+      
+      // -=-=-=-=-=-=-=-=-
+      this.TEXTBLOCK1.innerText = "Hello world" ;
       // 1: Liste des CSS
-      style = "margin: 370px,144px,0px,0px;"
-      style += "text-align: left;" ;
-      style += "vertical-align: top;" ;
-      BTN1.setAttribute("style", style) ;
-      // 2: Liste des eventlistener
+      style = ""; 
+      style += "position: absolute;";
+      style += "left: " + ((window.innerWidth / 2) - (this.BTN1.clientWidth / 2))  + ";";
+      style += "top: 0px;";
+      // Left / Top
+      this.BTN1.setAttribute("style", style) ;
+
+      className = "" ;
+      this.BTN1.setAttribute("class", className) ;
+     
 
 
-      affiche.innerText = "" ;
+      // -=-=-=-=-=-=-=-=-
+      this.affiche.innerText = "" ;
       // 1: Liste des CSS
-      style = "margin: 370px,144px,0px,0px;"
-      style += "text-align: center;" ;
-      style += "vertical-align: center;" ;
-      BTN1.setAttribute("style", style) ;
-      // 2: Liste des eventlistener
+      style = "";
+      style += "position: absolute;";
+      style += "left: " + ((window.innerWidth / 2) - (this.affiche.clientWidth / 2))  + ";";
+      style += "top: " + ((window.innerHeight / 2) - (this.affiche.clientHeight / 2))  + ";";
+      // Center / Center
+      this.BTN1.setAttribute("style", style) ;
+
+      className = "" ; 
+      this.BTN1.setAttribute("class", className) ;
+
+      
+
+      // -=-=-=-=-=-=-=-=-
     }
   }
   //Revoir le nommage des paramètres ici car HTMLElement pas équivalent à Object de WPF
-  afficher(sender : HTMLElement) : void { //et RoutedEventArgs pas présent non plus
+  public afficher(sender : HTMLElement, target : HTMLElement) : void { //et RoutedEventArgs pas présent non plus
     //console.log(elmt) ;
-    if (sender.innerText == "")
-      sender.innerText = "Coucou";
+    if (target.innerText == "")
+      target.innerText = "Coucou";
     else
-      sender.innerText = "";
+      target.innerText = "";
 
   
-      this.router.navigate(['/window1'])
+  //    this.router.navigate(['/window1'])
   }
 }

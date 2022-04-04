@@ -6,7 +6,7 @@ import { Window1Component } from './window1/window1.component';
 
 const routes: Routes = [
   {path: "", component: MainWindowComponent},
-  {path: ":window1", component: Window1Component}
+  {path: "window1", component: Window1Component}
 ];
 
 @NgModule({
