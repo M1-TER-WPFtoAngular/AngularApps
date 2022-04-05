@@ -31,7 +31,7 @@ export class MainWindowComponent implements OnInit {
       // 1: Liste des CSS
       let style = "" ;//The pixel is WPF's default unit of measurement.
       style += "position: absolute;";
-      style += "left: " + ((window.innerWidth / 2) - (this.BTN1.clientWidth / 2))  + ";";
+      style += "left: " + ((window.innerWidth / 2) - (this.BTN1.clientWidth / 2))  + "px;";
       style += "top: 0px;";
       // Center / Top
       this.BTN1.setAttribute("style", style) ;
@@ -44,13 +44,13 @@ export class MainWindowComponent implements OnInit {
       // 1: Liste des CSS
       style = ""; 
       style += "position: absolute;";
-      style += "left: " + ((window.innerWidth / 2) - (this.BTN1.clientWidth / 2))  + ";";
+      style += "left: 0px;";
       style += "top: 0px;";
       // Left / Top
-      this.BTN1.setAttribute("style", style) ;
+      this.TEXTBLOCK1.setAttribute("style", style) ;
 
       className = "" ;
-      this.BTN1.setAttribute("class", className) ;
+      this.TEXTBLOCK1.setAttribute("class", className) ;
      
 
 
@@ -59,13 +59,15 @@ export class MainWindowComponent implements OnInit {
       // 1: Liste des CSS
       style = "";
       style += "position: absolute;";
-      style += "left: " + ((window.innerWidth / 2) - (this.affiche.clientWidth / 2))  + ";";
-      style += "top: " + ((window.innerHeight / 2) - (this.affiche.clientHeight / 2))  + ";";
+      console.log((window.innerWidth / 2) - (this.affiche.clientWidth / 2));
+      console.log((window.innerHeight / 2) - (this.affiche.clientHeight / 2))  ;
+      style += "left: " + ((window.innerWidth / 2) - (this.affiche.clientWidth / 2))  + "px;";
+      style += "top: " + ((window.innerHeight / 2) - (this.affiche.clientHeight / 2))  + "px;";
       // Center / Center
-      this.BTN1.setAttribute("style", style) ;
+      this.affiche.setAttribute("style", style) ;
 
       className = "" ; 
-      this.BTN1.setAttribute("class", className) ;
+      this.affiche.setAttribute("class", className) ;
 
       
 
