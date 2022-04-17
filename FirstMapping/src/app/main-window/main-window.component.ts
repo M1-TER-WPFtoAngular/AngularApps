@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-main-window',
   templateUrl: './main-window.component.html',
@@ -21,7 +21,7 @@ export class MainWindowComponent implements OnInit {
   private affiche  : HTMLElement | null = null;
 
   constructor(private titleService: Title,
-    private router: Router,)  {
+    private router: Router)  {
     titleService.setTitle("MainWindow");
   }
 
