@@ -7,13 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FormAppMapping';
-
-  public ajouter(sender : HTMLElement) : void { 
-  }
-
-  public supprimer(sender : HTMLElement) : void { 
-  }
-
-  public listView_Click() : void { 
-  }
 }
