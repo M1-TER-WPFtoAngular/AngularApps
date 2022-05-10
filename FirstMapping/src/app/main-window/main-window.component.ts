@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { HostListener, Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from "@angular/router";
+
+
 @Component({
   selector: 'app-main-window',
   templateUrl: './main-window.component.html',
-  styleUrls: ['./main-window.component.css'],
-  host: {
-    '(window:resize)': 'onResize($event)'
-  }
+  styleUrls: ['./main-window.component.css']
 })
 export class MainWindowComponent implements OnInit {
 
@@ -21,7 +20,8 @@ export class MainWindowComponent implements OnInit {
   private affiche  : HTMLElement | null = null;
 
   constructor(private titleService: Title,
-    private router: Router)  {
+              private router: Router)  {
+                
     titleService.setTitle("MainWindow");
   }
 
@@ -47,6 +47,7 @@ export class MainWindowComponent implements OnInit {
 
   // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+  @HostListener('window:resize', ['$event'])
   onResize(event : any){
     this.refreshGraphicalElements(false);
   }
